@@ -73,7 +73,7 @@ public class SellerDaoJdbc implements SellerDao{
 			
 			DB.closeStatment(st);
 			DB.closeResultSet(rs);
-			DB.closeConnection();
+			
 		}
 	}
 
