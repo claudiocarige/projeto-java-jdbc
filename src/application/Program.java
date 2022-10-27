@@ -1,6 +1,6 @@
 package application;
 
-import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import model.dao.DaoFactory;
@@ -13,18 +13,31 @@ public class Program {
 	public static void main(String[] args) {
 
 		SellerDao sellerDao = DaoFactory.createSellerDao();
-		
+	
 		System.out.println("==== TEST 1 : seller findById ====");
 		Seller seller = sellerDao.findById(3);
 		System.out.println("\n" + seller);
 		
-		System.out.println("\n ==== TEST 2 : seller findByDepartment ====");
-		Department department = new Department(2, null);
+		System.out.println("\n\n ==== TEST 2 : seller findByDepartment ====");
+		Department department = new Department(3, null);
 		List<Seller> list = sellerDao.findByDepartment(department);
 		for (Seller item : list) {
 			System.out.println(item + "\n");
 			
 		}
+		System.out.println("\n\n ==== TEST 3 : seller findAll ====");
+		List<Seller> list2 = sellerDao.findAll();
+		for (Seller item : list2) {
+			System.out.println(item + "\n");
+		}
+		System.out.println("\n\n ==== TEST 4 : seller insert ====");
+		
+		Seller seller2 = new Seller(null, "Erick Nathan", "erick@gmail.com", new Date(), 3200.00, department);
+		sellerDao.insert(seller2);
+		System.out.println("Inserted New Id: " + seller2.getId());
+		
+		System.out.println("\n\n ==== TEST 5 : seller Delete ====");
+		sellerDao.deleteById(30);
+		System.out.println("Delete Id");
 	}
-
 }
