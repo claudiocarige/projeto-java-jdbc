@@ -1,9 +1,6 @@
 package application;
 
-import java.sql.ResultSet;
-import java.util.ArrayList;
 import java.util.List;
-
 import model.dao.DaoFactory;
 import model.dao.DepartmentDao;
 import model.entities.Department;
@@ -23,6 +20,10 @@ public class Program2 {
 		for (Department dep2 : list) {
 			System.out.println("\n" + dep2);
 		}
+		
+		System.out.println("\n\n ==== TEST 3 : Department delete ====");
+		departmentDao.deleteById(7);
+		System.out.println("Delete Id.");
 	}
 
 }
